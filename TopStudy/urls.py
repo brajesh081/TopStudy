@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from dashboard import views as dash_views
 from django.contrib.auth import views as auth_views
+from django.views.static import serve
+from django.conf.urls import url    
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +27,6 @@ urlpatterns = [
     path('login/',auth_views.LoginView.as_view(template_name = "dashboard/login.html"),name="login"),
     path('logout/',auth_views.LogoutView.as_view(template_name = "dashboard/logout.html"),name="logout"),
     path('profile/' , dash_views.profile , name="profile"),
-
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':    settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]

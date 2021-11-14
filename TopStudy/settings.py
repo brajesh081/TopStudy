@@ -25,7 +25,7 @@ SECRET_KEY = 'uaq@lde5xao4a)1$+yg^+dboih&ykx5gw==!6wy@vg9mg7*lh&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','topstudy.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -121,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [BASE_DIR/'static']
 
 LOGIN_REDIRECT_URL = 'home'
